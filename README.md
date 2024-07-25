@@ -26,14 +26,16 @@ Every aspect of the system is customizable, including the notification system (c
 
 - ox-lib
 - oxmysql
+- ox-target or qb-target
+- ox-inventory or qb-inventory custom inventory can be easily added
 
 item for qb-core: 
-
+```lua
 	['lotteryticket']  = {['name'] = 'lotteryticket', ['label'] = 'lotteryticket', ['weight'] = 200, ['type'] = 'item',  ['image'] = 'lotteryticket.png',                    ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil,  
     ['description'] = 'Included with the ticket, you're entered into the lottery draw next Saturday and have a chance at the jackpot.'},
-
+```
 item for ox-inventory: 
-
+```lua
 ['lotteryticket'] = {
     label = 'Lottoschein',
     weight = 5,
@@ -44,7 +46,7 @@ item for ox-inventory:
         usabe = true
     }
 },
-
+ ```
 
 If you have any additional details or specific configuration options you'd like to include, feel free to let me know!
 
