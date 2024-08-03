@@ -30,3 +30,10 @@ server_scripts {
 }
 
 
+escrow_ignore {
+    'config.lua',
+    'locales/*',
+    'client/client_target.lua',
+    'client/client_functions.lua',
+    'server/server_functions.lua',
+}

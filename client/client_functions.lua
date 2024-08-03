@@ -23,3 +23,8 @@ function Notify(msg, type)
         print("Unknown framework specified in Config.Framework!")
     end
 end
+
+
+function CustomProgressbar(progressName, progressDuration, progressLabel, progressanimDict, progressanim)
+    -- Put here your own progressbar 
+    end 

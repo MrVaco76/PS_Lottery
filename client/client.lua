@@ -15,8 +15,8 @@ end
 
 
 
-RegisterNetEvent('PS_Lottery:AdminMenue')
-AddEventHandler('PS_Lottery:AdminMenue', function(participantCount, potValue, lastWinner)
+
+RegisterNetEvent('PS_Lottery:AdminMenue', function(participantCount, potValue, lastWinner)
     
     local PotAmount 
     local lastwin = json.encode(lastWinner)
@@ -99,8 +99,96 @@ AddEventHandler('PS_Lottery:AdminMenue', function(participantCount, potValue, la
 end)
 
 
-RegisterNetEvent('PS_Lottery:CheckWinClient')
-AddEventHandler('PS_Lottery:CheckWinClient', function()
+
+RegisterNetEvent('PS_Lottery:CheckWinClient', function()
     local clientId = GetPlayerServerId(PlayerId()) 
     TriggerServerEvent('PS_Lottery:CheckWin', clientId) 
+end)
+
+
+
+RegisterNetEvent('PS_Lottery:CheckStatsClient', function()
+    local clientId = GetPlayerServerId(PlayerId()) 
+    TriggerServerEvent('PS_Lottery:CheckStats', clientId) 
+end)
+
+
+RegisterNetEvent('PS_Lottery:OpenLotteryTicketProgress', function(pos, identifier)
+    local progressName = "PS_lottery_openticket"
+    local progressDuration = Config.OpenLotteryTicketDuration
+    local progressLabel = Config.OpenLotteryTicketLabel
+    local progressanimDict = "mp_arresting"
+    local progressanim = "a_uncuff"
+    local clientId = GetPlayerServerId(PlayerId()) 
+
+    if Config.Progressbar == "qb-progressbar" then
+        exports['progressbar']:Progress({
+            name = progressName,
+            duration = progressDuration,
+            label = progressLabel,
+            useWhileDead = false,
+            canCancel = true,
+            controlDisables = {
+                disableMovement = true,
+                disableCarMovement = true,
+                disableMouse = true,
+                disableCombat = true,
+            },
+            animation = {
+                animDict = progressanimDict,
+                anim = progressanim,
+                flags = 49,
+            },
+            prop = { },
+            propTwo = {}
+        }, function(cancelled)
+            if not cancelled then
+               TriggerServerEvent('PS_Lottery:lotteryParticipation', clientId)
+            else
+                
+            end
+        end)
+    elseif Config.Progressbar == "ESX-Progressbar" then 
+        exports["esx_progressbar"]:Progressbar(progressLabel, progressDuration, {
+            FreezePlayer = true, 
+            animation = {
+                type = "anim",
+                dict = progressanimDict, 
+                lib = progressanim
+            },
+            onFinish = function()
+                TriggerServerEvent('PS_Lottery:lotteryParticipation', clientId)
+            end
+        })
+    elseif Config.Progressbar == "custom-progressbar" then 
+        CustomProgressbar(progressName, progressDuration, progressLabel, progressanimDict, progressanim)
+        Wait(progressDuration)
+        TriggerServerEvent('PS_Lottery:lotteryParticipation', clientId)
+    elseif Config.Progressbar == "ox-progressbar" then 
+        if lib.progressBar({
+            duration = progressDuration,
+            label = progressLabel,
+            useWhileDead = false,
+            canCancel = true,
+            anim = {
+                dict = progressanimDict,
+                clip = progressanim
+            },
+        }) then
+            TriggerServerEvent('PS_Lottery:lotteryParticipation', clientId)
+        end
+    elseif Config.Progressbar == "ox-progressCircle" then 
+        if lib.progressCircle({
+            duration = progressDuration,
+            label = progressLabel,
+            useWhileDead = false,
+            canCancel = true,
+            anim = {
+                dict = progressanimDict,
+                clip = progressanim
+            },
+        }) then
+            TriggerServerEvent('PS_Lottery:lotteryParticipation', clientId)
+        end
+    end
 end)

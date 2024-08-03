@@ -11,9 +11,8 @@ CREATE TABLE lottery_pot(
 );
 
 CREATE TABLE lottery_winner (
-    lottery_winnerid VARCHAR(75) PRIMARY KEY,
+    lottery_winnerid VARCHAR(100) PRIMARY KEY,
     lottery_winnercitizenid VARCHAR(75),
-    lottery_winningamount VARCHAR(75),
-    UNIQUE (lottery_winnerid, lottery_winnercitizenid, lottery_winningamount)
+    lottery_winningamount VARCHAR(75)
 );
 

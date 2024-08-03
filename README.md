@@ -43,7 +43,7 @@ item for ox-inventory:
     close = true,
     client = {
         image = 'lotteryticket.png',
-        usabe = true
+        useable = true
     }
 },
  ```
