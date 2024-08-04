@@ -1,7 +1,7 @@
 Config = {}
 Config.Debug = false
 Config.Framework = "qb-core"  --Integrate your framework (ESX/qb-core) here.
-Config.locales = "en" -- Specify your preferred language here. (en/de)
+Config.locales = "en" -- Specify your preferred language here. (en/de/fr)
 Config.Inventory = "Old-QbInventory"  -- Choose your inventory system: New-QbInventory, Old-QbInventory, OX-Inventory, qs-inventory or custom
 Config.UseTarget = true -- You can disable the target system. Players can check any lottery sign to see if they've won.
 Config.TargetSystem = "qb-target" --qb-target or ox-target

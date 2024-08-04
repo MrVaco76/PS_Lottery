@@ -61,4 +61,34 @@ elseif Config.locales == "de" then
     translations.CheckWin = "Überprüfen Sie Ihren Lotteriegewinn!"
     translations.CheckStatsLabel = "Lotteriestatistiken!"
 
+    elseif Config.locales == "fr" then 
+    --Notify
+    translations.LotteryJoined = "Vous êtes maintenant inscrit au prochain tirage de la loterie !"
+    translations.DatabaseError = "Il y a eu une erreur dans la base de données !"
+    translations.LotteryJoinedAgain = "Vous avez soumis un autre billet de loterie !"
+    translations.MaxParticipationReached = "Vous avez atteint le nombre maximum de participations à la loterie !"
+    translations.NoMoneyInPot = "Il n'y a pas d'argent dans le pot !"
+    translations.YouAreWinner = "Félicitations, vous avez gagné le tirage de la loterie ! Votre prix : %d€"
+    translations.YouAreNotWinner = "Malheureusement, vous n'avez pas gagné le tirage de la loterie."
+    translations.LotteryPotUpdated = "Le pot de la loterie a été mis à jour à %s€."
+    translations.LotteryPotDrawnAdmin = "Vous avez effectué le tirage de la loterie avec succès !"
+    translations.NoPermission = "Vous n'avez pas la permission de faire cela."
+    translations.lotteryDrawn = "Le tirage de la loterie est terminé, vérifiez rapidement si vous avez gagné !"
+    translations.NoEntriesInLottery = "Personne n'a participé à la loterie ! Ou vous n'êtes pas le gagnant de la dernière loterie !"
+    translations.GetStats = "Pot de la loterie : %s€ Participant : %s"
+    
+    -- Admin menu
+    translations.LotteryAdminMenueTitel = "Gestion de la loterie"
+    translations.LotteryParticipated = "Nombre de participants"
+    translations.LotteryPot = "Actuellement à gagner :"
+    translations.manualDrawing = "Un gagnant doit-il être tiré maintenant ?"
+    translations.LastWinner = "Le dernier gagnant est :"
+    translations.NoWinnerAdmin = "Le dernier gagnant a déjà récupéré son prix !"
+    translations.ConfirmChangePot = "Êtes-vous sûr de vouloir changer le prix à : %s€ ?"
+    translations.LotteryDrawAdminCheck = "Êtes-vous sûr de vouloir déclencher le tirage de la loterie ?"
+    
+    -- Target
+    translations.CheckWin = "Vérifiez votre gain à la loterie !"
+    translations.CheckStatsLabel = "Statistiques de la loterie !"
+
 end 
